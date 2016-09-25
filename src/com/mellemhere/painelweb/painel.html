@@ -1,0 +1,41 @@
+<html><head>
+        <meta charset="UTF-8">
+        <title>Painel da porta</title>
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="material.css" type="text/css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <style type="text/css"></style>
+    </head>
+
+    <body cz-shortcut-listen="true" style="padding-bottom: 200px;padding-top: 100px;">
+
+
+        <div class="content">
+            <div class="bs-component">
+                <div class="alert alert-dismissible alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h4>Status:</h4>
+                    <p class="trombadinhaText">Esta tudo bem!</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <script src="jquery.js"></script>
+        <script src="socketio.js"></script>
+
+        <script>
+            var socket = io.connect('http://104.198.1.100:6968');
+
+            socket.on('status', function (data) {
+                $('.trombadinhaText').html(data.message);
+            });
+            
+        </script>
+
+
+
+    </body></html>
